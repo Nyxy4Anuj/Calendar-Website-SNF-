@@ -1,4 +1,3 @@
-// 2025 Comprehensive Bilingual Lunar Calendar with Indian & UN Holidays - Moonlight Theme
 class ComprehensiveLunarCalendar {
     constructor() {
         this.currentSlideIndex = 0;
@@ -11,7 +10,6 @@ class ComprehensiveLunarCalendar {
         this.currentEventFilter = 'all';
         this.currentHolidayFilter = 'all';
         
-        // Initialize comprehensive holiday and historical data
         this.init();
     }
 
@@ -22,7 +20,6 @@ class ComprehensiveLunarCalendar {
         try {
             await this.loadComprehensiveHolidayData();
             
-            // Wait for DOM to be fully ready
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', () => {
                     setTimeout(() => this.setupApplication(), 100);
@@ -77,7 +74,6 @@ class ComprehensiveLunarCalendar {
     getComprehensiveHolidayData(month, day) {
         const dateKey = String(month + 1).padStart(2, '0') + '-' + String(day).padStart(2, '0');
         
-        // Comprehensive holiday database - 93+ holidays
         const comprehensiveHolidays = {
             // January
             '01-01': [{
@@ -389,7 +385,6 @@ class ComprehensiveLunarCalendar {
     getDetailedHistoricalEvents(month, day, dayIndex) {
         const dateKey = String(month + 1).padStart(2, '0') + '-' + String(day).padStart(2, '0');
         
-        // Enhanced historical events database
         const majorEvents = {
             '01-01': [
                 {
@@ -437,7 +432,6 @@ class ComprehensiveLunarCalendar {
             ]
         };
 
-        // Rotating historical events for variety
         const rotatingEvents = [
             {
                 event_hindi: '3200 ईसा पूर्व - सिंधु घाटी सभ्यता का विकास',
@@ -548,7 +542,6 @@ class ComprehensiveLunarCalendar {
         return historicalFacts[dayIndex % historicalFacts.length];
     }
 
-    // Rest of the utility methods remain the same...
     getHinduCalendarInfo(date) {
         const hinduMonths = [
             'पौष', 'माघ', 'फाल्गुन', 'चैत्र', 'वैशाख', 'ज्येष्ठ',
@@ -685,7 +678,6 @@ class ComprehensiveLunarCalendar {
             });
         }
         
-        // Month selection
         const monthSelect = document.getElementById('monthSelect');
         if (monthSelect) {
             monthSelect.replaceWith(monthSelect.cloneNode(true));
@@ -697,7 +689,6 @@ class ComprehensiveLunarCalendar {
             });
         }
 
-        // Holiday type filter - NEW
         const holidayTypeFilter = document.getElementById('holidayTypeFilter');
         if (holidayTypeFilter) {
             holidayTypeFilter.replaceWith(holidayTypeFilter.cloneNode(true));
@@ -708,7 +699,6 @@ class ComprehensiveLunarCalendar {
             });
         }
 
-        // Event category filter
         const eventCategoryFilter = document.getElementById('eventCategoryFilter');
         if (eventCategoryFilter) {
             eventCategoryFilter.replaceWith(eventCategoryFilter.cloneNode(true));
@@ -726,7 +716,6 @@ class ComprehensiveLunarCalendar {
     }
 
     setupModalEventListeners() {
-        // Fullscreen, timeline, summary modals setup
         const fullscreenBtn = document.getElementById('fullscreenBtn');
         if (fullscreenBtn) {
             fullscreenBtn.replaceWith(fullscreenBtn.cloneNode(true));
@@ -883,7 +872,6 @@ class ComprehensiveLunarCalendar {
     }
 
     jumpToToday() {
-        // Jump to August 4th (current date mentioned)
         const targetDate = new Date(2025, 7, 4);
         const startOfYear = new Date(2025, 0, 1);
         const daysDiff = Math.floor((targetDate - startOfYear) / (1000 * 60 * 60 * 24));
@@ -1006,7 +994,6 @@ class ComprehensiveLunarCalendar {
         const content = document.getElementById('festivalsContent');
         if (!content) return;
         
-        // Filter holidays based on current holiday filter
         let filteredFestivals = festivals;
         if (this.currentHolidayFilter !== 'all') {
             filteredFestivals = festivals.filter(festival => festival.type === this.currentHolidayFilter);
@@ -1304,7 +1291,6 @@ class ComprehensiveLunarCalendar {
     }
 }
 
-// Initialize the comprehensive lunar calendar application
 let comprehensiveLunarCalendarApp;
 
 function initializeApp() {
@@ -1313,7 +1299,6 @@ function initializeApp() {
     comprehensiveLunarCalendarApp = new ComprehensiveLunarCalendar();
 }
 
-// Ensure initialization happens when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeApp);
 } else {
